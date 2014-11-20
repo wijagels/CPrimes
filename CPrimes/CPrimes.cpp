@@ -6,14 +6,26 @@
 #include <string>
 #include <ctime>
 #include "Primes.h"
+#include <sstream>
 using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[]) {
 	int a;
-	bool more = true;
-	while (more) {
+	string line;
+	while (true) {
 		cout << "Number pls; " << endl;
-		cin >> a;
+		while (std::getline(std::cin, line)) {
+			if (line == "exit") {
+				return 0;
+			}
+			std::stringstream ss(line);
+			if (ss >> a) {
+				if (ss.eof()) {   // Success
+					break;
+				}
+			}
+			std::cout << "Error!  Type exit to quit." << std::endl;
+		}
 		string str;
 		bool prime;
 		double dT = 0;
