@@ -17,7 +17,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	std::vector<unsigned long long int>* primes;
 	primes = new std::vector<unsigned long long int>();
 	string line;
-	Primes::genPrimes(primes, 1000000);
+	Primes::genPrimes(primes, 100000);
 	for (unsigned long long int p : *primes) {
 		cout << p << endl;
 	}

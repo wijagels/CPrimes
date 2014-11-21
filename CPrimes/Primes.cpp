@@ -28,7 +28,7 @@ bool Primes::isPrime(unsigned long long int a, unsigned long long int *failed) {
 }
 
 //Simple, yet efficient.
-bool Primes::isPrime(unsigned long long int a, std::vector<unsigned long long int> *primes) {
+bool Primes::isPrime(unsigned long long int a, std::vector<unsigned long long int>* primes) {
 	for (unsigned long long int p : *primes)
 		if (a % p == 0)
 			return false;
