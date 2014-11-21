@@ -7,10 +7,13 @@
 #include <ctime>
 #include "Primes.h"
 #include <sstream>
+#include <climits>
 using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[]) {
-	int a;
+	cout << "Maximum number: " << ULLONG_MAX << endl;
+	long long int a;
+	long long int* failed = 0;
 	string line;
 	while (true) {
 		cout << "Number pls; " << endl;
@@ -31,12 +34,16 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		double dT = 0;
 		clock_t t;
 		t = clock();
-		prime = Primes::isPrime(a);
+		cout << t << endl;
+		prime = Primes::isPrime(a, failed);
 		t = clock() - t;
+		cout << clock() << endl;
 		if (prime)
 			str = "It's prime";
-		else
+		else {
 			str = "Not prime";
+			cout << failed << endl;
+		}
 		cout << str << endl;
 		dT = ((float)t) / CLOCKS_PER_SEC;
 		string str2 = "That took " + std::to_string(dT) + " seconds";
