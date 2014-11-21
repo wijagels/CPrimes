@@ -19,9 +19,25 @@ bool Primes::isPrime(unsigned long long int a, unsigned long long int *failed) {
 		/*string tmp = "Checking " + std::to_string(a) + " mod " + std::to_string(i);
 		cout << tmp << endl; //for debugging */
 		if (a % i == 0) {
-			*failed = i;
+			if (*failed != NULL)
+				*failed = i;
 			return false;
 		}
 	}
 	return true;
+}
+
+//Simple, yet efficient.
+bool Primes::isPrime(unsigned long long int a, std::vector<unsigned long long int> *primes) {
+	for (unsigned long long int p : *primes)
+		if (a % p == 0)
+			return false;
+	return true;
+}
+
+void Primes::genPrimes(std::vector<unsigned long long int>* primes, unsigned long long int max) {
+	for (unsigned long long int a = 2; a <= max; a++) {
+		if (Primes::isPrime(a, primes))
+			primes->push_back(a);
+	}
 }

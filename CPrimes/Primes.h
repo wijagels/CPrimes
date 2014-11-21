@@ -1,8 +1,14 @@
 #pragma once
+#include <vector>
+#include <thread>
+#include <iostream>
+#include <string>
+
 class Primes {
 public:
 	Primes();
 	~Primes();
-	// Determines if parameter is a prime by the definition of a prime number.
 	static bool isPrime(unsigned long long int a, unsigned long long int *failed);
+	static bool isPrime(unsigned long long int a, std::vector<unsigned long long int> *primes);
+	static void genPrimes(std::vector<unsigned long long int>* primes, unsigned long long int max);
 };

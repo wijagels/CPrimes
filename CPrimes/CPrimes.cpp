@@ -2,19 +2,25 @@
 //
 
 #include "stdafx.h"
-#include <iostream>
-#include <string>
+#include "CPrimes.h"
 #include <ctime>
 #include "Primes.h"
 #include <sstream>
 #include <climits>
 using namespace std;
+void genPrimes(std::vector<unsigned long long int>* primes, unsigned long long int max);
 
 int _tmain(int argc, _TCHAR* argv[]) {
 	cout << "Maximum number: " << ULLONG_MAX << endl;
 	unsigned long long int a;
 	unsigned long long int failed = 0;
+	std::vector<unsigned long long int>* primes;
+	primes = new std::vector<unsigned long long int>();
 	string line;
+	Primes::genPrimes(primes, 1000000);
+	for (unsigned long long int p : *primes) {
+		cout << p << endl;
+	}
 	while (true) {
 		cout << "Number pls; " << endl;
 		while (std::getline(std::cin, line)) {
@@ -49,3 +55,4 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	}
 	return 0;
 }
+
