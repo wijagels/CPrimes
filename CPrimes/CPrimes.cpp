@@ -12,8 +12,8 @@ using namespace std;
 
 int _tmain(int argc, _TCHAR* argv[]) {
 	cout << "Maximum number: " << ULLONG_MAX << endl;
-	long long int a;
-	long long int* failed = 0;
+	unsigned long long int a;
+	unsigned long long int failed = 0;
 	string line;
 	while (true) {
 		cout << "Number pls; " << endl;
@@ -34,14 +34,12 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		double dT = 0;
 		clock_t t;
 		t = clock();
-		cout << t << endl;
-		prime = Primes::isPrime(a, failed);
+		prime = Primes::isPrime(a, &failed);
 		t = clock() - t;
-		cout << clock() << endl;
 		if (prime)
 			str = "It's prime";
 		else {
-			str = "Not prime";
+			str = "Not prime, divisible by " + std::to_string(failed);
 			cout << failed << endl;
 		}
 		cout << str << endl;
