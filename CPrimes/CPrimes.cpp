@@ -31,7 +31,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 				}
 			}
 			std::cout.imbue(std::locale(""));//puts commas into numbers for readability's sake
-			std::cout << "Bad input or too large!  Type exit to quit or try again.  Current prime is:\n"
+			std::cout << "Bad input or too large!  Type exit to quit, or try again.  Current prime is:\n"
 				<< primes->back() << std::endl;
 		}
 		string str;
