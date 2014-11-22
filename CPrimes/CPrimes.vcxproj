@@ -82,12 +82,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CPrimes.h" />
+    <ClInclude Include="DbManager.h" />
     <ClInclude Include="Primes.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CPrimes.cpp" />
+    <ClCompile Include="DbManager.cpp" />
     <ClCompile Include="Primes.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

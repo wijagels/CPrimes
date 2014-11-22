@@ -17,10 +17,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	std::vector<unsigned long long int>* primes;
 	primes = new std::vector<unsigned long long int>();
 	string line;
-	Primes::genPrimes(primes, 100000);
-	for (unsigned long long int p : *primes) {
-		cout << p << endl;
-	}
+	std::thread primeGen(Primes::genPrimes, primes, 100000);
 	while (true) {
 		cout << "Number pls; " << endl;
 		while (std::getline(std::cin, line)) {
@@ -33,19 +30,19 @@ int _tmain(int argc, _TCHAR* argv[]) {
 					break;
 				}
 			}
-			std::cout << "Error!  Type exit to quit." << std::endl;
+			std::cout << "Bad input or too large!  Type exit to quit or try again." << std::endl;
 		}
 		string str;
 		bool prime;
 		double dT = 0;
 		clock_t t;
 		t = clock();
-		prime = Primes::isPrime(a, &failed);
+		prime = Primes::isPrime(a, primes);
 		t = clock() - t;
 		if (prime)
 			str = "It's prime";
 		else {
-			str = "Not prime, divisible by " + std::to_string(failed);
+			str = "Not prime";
 			cout << failed << endl;
 		}
 		cout << str << endl;

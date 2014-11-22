@@ -30,7 +30,9 @@ bool Primes::isPrime(unsigned long long int a, unsigned long long int *failed) {
 //Simple, yet efficient.
 bool Primes::isPrime(unsigned long long int a, std::vector<unsigned long long int>* primes) {
 	for (unsigned long long int p : *primes)
-		if (a % p == 0)
+		if (p > sqrt(a))
+			return true;
+		else if (a % p == 0)
 			return false;
 	return true;
 }
