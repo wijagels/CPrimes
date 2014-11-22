@@ -17,20 +17,22 @@ int _tmain(int argc, _TCHAR* argv[]) {
 	std::vector<unsigned long long int>* primes;
 	primes = new std::vector<unsigned long long int>();
 	string line;
-	std::thread primeGen(Primes::genPrimes, primes, 100000);
+	std::thread primeGen(Primes::genPrimes, primes, sqrt(ULLONG_MAX));
 	while (true) {
-		cout << "Number pls; " << endl;
+		cout << "Number pls:" << endl;
 		while (std::getline(std::cin, line)) {
 			if (line == "exit") {
 				return 0;
 			}
 			std::stringstream ss(line);
 			if (ss >> a) {
-				if (ss.eof()) {   // Success
+				if (ss.eof() && !a < pow(primes->back(),2)) {   // make sure we aren't over the maximum verifiable prime
 					break;
 				}
 			}
-			std::cout << "Bad input or too large!  Type exit to quit or try again." << std::endl;
+			std::cout.imbue(std::locale(""));//puts commas into numbers for readability's sake
+			std::cout << "Bad input or too large!  Type exit to quit or try again.  Current prime is:\n"
+				<< primes->back() << std::endl;
 		}
 		string str;
 		bool prime;
