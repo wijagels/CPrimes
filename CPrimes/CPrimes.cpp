@@ -7,6 +7,7 @@
 #include "Primes.h"
 #include <sstream>
 #include <climits>
+#include <windows.h>
 using namespace std;
 void genPrimes(std::vector<unsigned long long int>* primes, unsigned long long int max);
 
@@ -22,7 +23,7 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		cout << "Number pls:" << endl;
 		while (std::getline(std::cin, line)) {
 			if (line == "exit") {
-				return 0;
+				goto exit;
 			}
 			std::stringstream ss(line);
 			if (ss >> a) {
@@ -52,6 +53,9 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		string str2 = "That took " + std::to_string(dT) + " seconds";
 		cout << str2 << endl;
 	}
+exit:
+	std::cout.imbue(std::locale(""));
+	std::cout << "Generated " << primes->size() << " primes, shutting down in 5 seconds..." << endl;
+	Sleep(5000);
 	return 0;
 }
-
