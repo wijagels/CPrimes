@@ -1,7 +1,7 @@
 CPrimes
 =======
 
-A C++ version of wijagels/PrimeServer
+A C++ version of my PrimeServer
 
 A focus on speed, and a hope to run concurrently.
 The goal is to create a process that fires up, and generates primes until a specified upper bound.
