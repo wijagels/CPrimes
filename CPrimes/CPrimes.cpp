@@ -14,7 +14,6 @@ void genPrimes(std::vector<unsigned long long int>* primes, unsigned long long i
 int _tmain(int argc, _TCHAR* argv[]) {
 	cout << "Maximum number: " << ULLONG_MAX << endl;
 	unsigned long long int a;
-	unsigned long long int failed = 0;
 	std::vector<unsigned long long int>* primes;
 	primes = new std::vector<unsigned long long int>();
 	string line;
@@ -42,14 +41,13 @@ int _tmain(int argc, _TCHAR* argv[]) {
 		t = clock();
 		prime = Primes::isPrime(a, primes);
 		t = clock() - t;
+		dT = ((float)t) / CLOCKS_PER_SEC;
 		if (prime)
 			str = "It's prime";
 		else {
 			str = "Not prime";
-			cout << failed << endl;
 		}
 		cout << str << endl;
-		dT = ((float)t) / CLOCKS_PER_SEC;
 		string str2 = "That took " + std::to_string(dT) + " seconds";
 		cout << str2 << endl;
 	}
