@@ -1,4 +1,4 @@
-CPrimes
+CPrimes [![Build Status](https://travis-ci.org/wijagels/CPrimes.svg?branch=master)](https://travis-ci.org/wijagels/CPrimes)
 =======
 
 A C++ version of my PrimeServer
