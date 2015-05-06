@@ -2,8 +2,13 @@
 CXX=g++
 CXXFLAGS=-std=c++11
 all:
-	$(CXX) $(CXXFLAGS) cprimes.cpp -o cprimes
+	mkdir -p build
+	$(CXX) $(CXXFLAGS) cprimes.cpp -o build/cprimes
 
 test:
-	$(CXX) $(FLAGS) test.cpp -o test -Isrc/
-	./test
+	mkdir -p build
+	$(CXX) $(FLAGS) test.cpp -o build/test -Isrc/
+	./build/test
+
+clean:
+	rm -r build/
