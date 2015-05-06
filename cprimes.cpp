@@ -3,7 +3,7 @@
 int main() {
     unsigned long long int a;
     std::cout << "Maximum number: " << ULLONG_MAX << std::endl;
-    std::vector<unsigned long long int>();
+    primes = std::vector<unsigned long long int>();
     std::string line;
     while(true) {
         std::cout << "Please enter a number: ";

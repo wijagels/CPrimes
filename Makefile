@@ -1,5 +1,5 @@
 CXX=clang++
-CXXFLAGS=-std=c++14 -stdlib=libstdc++
+CXXFLAGS=-std=c++11 -stdlib=libstdc++
 all:
 	mkdir -p build
 	$(CXX) $(CXXFLAGS) cprimes.cpp -o build/cprimes
