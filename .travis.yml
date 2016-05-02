@@ -1,6 +1,8 @@
 sudo: false
 language: cpp
-cache: ccache
+cache:
+    - ccache
+    - apt
 matrix:
   include:
     - compiler: gcc
@@ -39,4 +41,5 @@ matrix:
       env: COMPILER=clang++-3.7
 
 script:
-  make CXX=$COMPILER -j2
+    - make CXX=$COMPILER -j2
+    - make test
