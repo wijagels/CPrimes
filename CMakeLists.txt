@@ -43,5 +43,5 @@ enable_cxx_compiler_flag_if_supported("-Werror")
 enable_cxx_compiler_flag_if_supported("-pedantic")
 
 
-add_executable(primes Main.cpp)
+add_executable(primes Main.cpp Primes.cpp)
 target_link_libraries(primes Threads::Threads ${Boost_LIBRARIES} ${GMP_LIBRARIES} ${GMPXX_LIBRARIES})
