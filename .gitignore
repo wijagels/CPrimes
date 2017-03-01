@@ -34,7 +34,8 @@
 # Core dumps
 core
 
-# Compiled ycm config
+# ycm config
+.ycm_extra_conf.py
 .ycm_extra_conf.pyc
 
 # Build dir
